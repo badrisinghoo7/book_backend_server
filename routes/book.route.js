@@ -15,7 +15,7 @@ bookRouter.post('/', auth, access('CREATOR'), async (req, res) => {
   }
 });
 
-bookRouter.get('/', auth, access('VIEW_ALL'), async (req, res) => {
+bookRouter.get('/', auth, access('VIEW_ALL' || "CREATOR"), async (req, res) => {
   try {
     const allBooks = await bookModel.find();
     res.json(allBooks);
