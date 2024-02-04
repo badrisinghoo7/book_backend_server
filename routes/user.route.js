@@ -27,7 +27,6 @@ userRouter.post("/register", async (req, res) => {
   }
 });
 
-
 userRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -41,6 +40,7 @@ userRouter.post("/login", async (req, res) => {
               { userId: user._id, role: user.role },
               process.env.JWT_SECRET_KEY
             ),
+            role: user.role,
           });
         }
         // result == true
